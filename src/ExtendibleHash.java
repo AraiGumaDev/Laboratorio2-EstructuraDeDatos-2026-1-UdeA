@@ -29,14 +29,14 @@ public class ExtendibleHash {
     }
     
     // NUEVO: verificar duplicados
-    private boolean existe(String cedula) {
+    public boolean existe(String cedula) {
         return buscar(cedula) != null;
     }
 
     // Insertar
     public void insertar(Usuario u) {
         if (existe(u.getCedula())) {
-            System.out.println("Error: cédula duplicada -> " + u.getCedula());
+            
             return;
         }
         int indice = obtenerIndice(u.getCedula());

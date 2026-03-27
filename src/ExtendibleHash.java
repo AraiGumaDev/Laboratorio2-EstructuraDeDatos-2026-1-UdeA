@@ -27,9 +27,18 @@ public class ExtendibleHash {
         int h = hash(clave);
         return h & ((1 << profundidadGlobal) - 1);
     }
+    
+    // NUEVO: verificar duplicados
+    private boolean existe(String cedula) {
+        return buscar(cedula) != null;
+    }
 
     // Insertar
     public void insertar(Usuario u) {
+        if (existe(u.getCedula())) {
+            System.out.println("Error: cédula duplicada -> " + u.getCedula());
+            return;
+        }
         int indice = obtenerIndice(u.getCedula());
         Bucket bucket = directorio.get(indice);
 

@@ -34,7 +34,7 @@ public class Main {
 
                     Usuario u = new Usuario(nombre, cedula, correo);
 
-                    // 🔥 AQUÍ CONTROLAS TODO
+                    // Aquí controlamos los duplicados
                     if (!hash.existe(cedula)) {
                         hash.insertar(u);
                         sec.insertar(u);

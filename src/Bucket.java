@@ -29,6 +29,10 @@ public class Bucket {
         return null;
     }
 
+    public boolean eliminar(String cedula) {
+        return usuarios.removeIf(u -> u.getCedula().equals(cedula));
+    }
+
     public ArrayList<Usuario> getUsuarios() {
         return usuarios;
     }

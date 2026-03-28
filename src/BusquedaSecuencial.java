@@ -19,6 +19,23 @@ public class BusquedaSecuencial {
         return null;
     }
 
+    // Eliminar por cédula
+    public boolean eliminar(String cedula) {
+        return lista.removeIf(u -> u.getCedula().equals(cedula));
+    }
+
+    // Actualizar por cédula
+    public boolean actualizar(String cedula, String nuevoNombre, String nuevoCorreo) {
+        for (Usuario u : lista) {
+            if (u.getCedula().equals(cedula)) {
+                u.setNombre(nuevoNombre);
+                u.setCorreo(nuevoCorreo);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ArrayList<Usuario> getLista() {
         return lista;
     }

@@ -97,4 +97,20 @@ public class ExtendibleHash {
         Bucket bucket = directorio.get(indice);
         return bucket.buscar(cedula);
     }
+
+    // Eliminar
+    public boolean eliminar(String cedula) {
+        int indice = obtenerIndice(cedula);
+        Bucket bucket = directorio.get(indice);
+        return bucket.eliminar(cedula);
+    }
+
+    // Actualizar (no cambia la cédula ya que es la clave)
+    public boolean actualizar(String cedula, String nuevoNombre, String nuevoCorreo) {
+        Usuario u = buscar(cedula);
+        if (u == null) return false;
+        u.setNombre(nuevoNombre);
+        u.setCorreo(nuevoCorreo);
+        return true;
+    }
 }
